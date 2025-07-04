@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>고객 고지사항 입력</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Arial', sans-serif; }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .error { color: red; display: none; }
+        .details { margin-left: 20px; }
+        .radio-group { display: flex; gap: 20px; }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container mx-auto p-4">
+        <h1 class="text-2xl font-bold mb-4 text-center">고객 고지사항 입력</h1>
+        <form id="customerForm" class="bg-white p-6 rounded shadow-md">
+            <!-- 기본 정보 -->
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">이름</label>
+                <input type="text" id="name" class="mt-1 p-2 w-full border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">생년월일</label>
+                <input type="date" id="birthdate" class="mt-1 p-2 w-full border rounded" required>
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium text-gray-700">직업</label>
+                <input type="text" id="occupation" class="mt-1 p-2 w-full border rounded" required>
+            </div>
+
+            <!-- 고지사항 문항 -->
+            <h2 class="text-lg font-semibold mb-2">건강체 고지사항</h2>
+            <div id="questions">
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">1. 최근 3개월 이내에 병원 가신 적이 있으신가요? (입원, 수술, 질병확정진단, 질병의심소견, 약처방)</label>
+                    <div class="radio-group mt-2">
+                        <label><input type="radio" name="q1" value="yes" required> 예</label>
+                        <label><input type="radio" name="q1" value="no"> 아니오</label>
+                    </div>
+                    <div class="details hidden mt-2">
+                        <label class="block text-sm">년</label>
+                        <input type="number" class="year mt-1 p-2 w-full border rounded" placeholder="YYYY">
+                        <label class="block text-sm mt-2">월</label>
+                        <input type="number" class="month mt-1 p-2 w-full border rounded" placeholder="MM">
+                        <label class="block text-sm mt-2">일</label>
+                        <input type="number" class="day mt-1 p-2 w-full border rounded" placeholder="DD">
+                        <label class="block text-sm mt-2">병명</label>
+                        <input type="text" class="disease mt-1 p-2 w-full border rounded" placeholder="병명">
+                        <label class="block text-sm mt-2">치료 내용</label>
+                        <input type="text" class="treatment mt-1 p-2 w-full border rounded" placeholder="치료 내용">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">2. 최근 1년 이내에 의사로부터 진찰 또는 검사를 통하여 추가검사, 재검사를 받으신 적이 있으신가요?</label>
+                    <div class="radio-group mt-2">
+                        <label><input type="radio" name="q2" value="yes" required> 예</label>
+                        <label><input type="radio" name="q2" value="no"> 아니오</label>
+                    </div>
+                    <div class="details hidden mt-2">
+                        <label class="block text-sm">년</label>
+                        <input type="number" class="year mt-1 p-2 w-full border rounded" placeholder="YYYY">
+                        <label class="block text-sm mt-2">월</label>
+                        <input type="number" class="month mt-1 p-2 w-full border rounded" placeholder="MM">
+                        <label class="block text-sm mt-2">일</label>
+                        <input type="number" class="day mt-1 p-2 w-full border rounded" placeholder="DD">
+                        <label class="block text-sm mt-2">병명</label>
+                        <input type="text" class="disease mt-1 p-2 w-full border rounded" placeholder="병명">
+                        <label class="block text-sm mt-2">치료 내용</label>
+                        <input type="text" class="treatment mt-1 p-2 w-full border rounded" placeholder="치료 내용">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">3. 최근 5년 이내 입원, 수술, 하나의 질병 또는 사고로 7일 이상 통원, 30일 이상 약을 복용하신 적이 있으신가요?</label>
+                    <div class="radio-group mt-2">
+                        <label><input type="radio" name="q3" value="yes" required> 예</label>
+                        <label><input type="radio" name="q3" value="no"> 아니오</label>
+                    </div>
+                    <div class="details hidden mt-2">
+                        <label class="block text-sm">년</label>
+                        <input type="number" class="year mt-1 p-2 w-full border rounded" placeholder="YYYY">
+                        <label class="block text-sm mt-2">월</label>
+                        <input type="number" class="month mt-1 p-2 w-full border rounded" placeholder="MM">
+                        <label class="block text-sm mt-2">일</label>
+                        <input type="number" class="day mt-1 p-2 w-full border rounded" placeholder="DD">
+                        <label class="block text-sm mt-2">병명</label>
+                        <input type="text" class="disease mt-1 p-2 w-full border rounded" placeholder="병명">
+                        <label class="block text-sm mt-2">치료 내용</label>
+                        <input type="text" class="treatment mt-1 p-2 w-full border rounded" placeholder="치료 내용">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium text-gray-700">4. 최근 5년 이내 10대 질병 (암, 백혈병, 고혈압, 협심증, 심근경색, 심장판막증, 간경화, 뇌졸중(뇌출혈, 뇌경색), 당뇨병, 에이즈)으로 진단 및 치료받으신 적이 있으신가요?</label>
+                    <div class="radio-group mt-2">
+                        <label><input type="radio" name="q4" value="yes" required> 예</label>
+                        <label><input type="radio" name="q4" value="no"> 아니오</label>
+                    </div>
+                    <div class="details hidden mt-2">
+                        <label class="block text-sm">년</label>
+                        <input type="number" class="year mt-1 p-2 w-full border rounded" placeholder="YYYY">
+                        <label class="block text-sm mt-2">월</label>
+                        <input type="number" class="month mt-1 p-2 w-full border rounded" placeholder="MM">
+                        <label class="block text-sm mt-2">일</label>
+                        <input type="number" class="day mt-1 p-2 w-full border rounded" placeholder="DD">
+                        <label class="block text-sm mt-2">병명</label>
+                        <input type="text" class="disease mt-1 p-2 w-full border rounded cyclones, hurricanes, and typhoons are all tropical cyclones, but they differ based on where they form and their wind speeds. Tropical cyclones are classified as tropical depressions, tropical storms, or hurricanes/typhoons based on sustained wind speeds, with hurricanes and typhoons reaching at least 74 mph (119 km/h). The main distinction is geographic: hurricanes form in the Atlantic or eastern Pacific, typhoons in the western Pacific, and cyclones in the Indian Ocean or near Australia. Posts on X show ongoing discussions about Cyclone Milton, which hit Florida as a Category 3 hurricane in October 2024, causing significant damage. No specific controversies were noted, but public interest remains high due to its impact.
